@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NOAH — Wardrobe Studio</title>
+<style>
+:root{--ink:#23382f;--muted:#758076;--paper:#f6f5ef;--line:#dedfd6;--green:#244c3a;--soft:#e7ecdf;--serif:Georgia,'Times New Roman',serif}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 'Segoe UI','Malgun Gothic',sans-serif}button,input,select{font:inherit}button{cursor:pointer;color:inherit}button:disabled{opacity:.4;cursor:not-allowed}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #ab752c;outline-offset:4px}button{border:1px solid var(--line);background:transparent;border-radius:8px;transition:background .18s,transform .18s}button:hover{background:#e9ece3}button:active{transform:translateY(1px)}header{height:87px;padding:0 4.5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:17px}.brandmark{font:30px var(--serif);letter-spacing:4px}.brand small{font-size:10px;letter-spacing:2.4px;border-left:1px solid #afb7ac;padding-left:17px;line-height:1.6}.status{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted);letter-spacing:1px}.dot{width:6px;height:6px;background:#5b8054;border-radius:50%}.top-actions{display:flex;gap:8px}.top-actions button{padding:9px 14px;font-size:12px}.primary{background:var(--green);color:white;border-color:var(--green)}.primary:hover{background:#35624b}.layout{max-width:1560px;margin:0 auto;display:grid;grid-template-columns:210px minmax(330px,1fr) 420px;min-height:calc(100vh - 87px)}aside{padding:34px 24px 24px 30px;border-right:1px solid var(--line)}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--muted);font-weight:600}.section-title{font:26px var(--serif);margin:6px 0 25px}.nav{display:grid;gap:6px}.nav button{border:0;text-align:left;padding:13px 14px;display:flex;align-items:center;gap:12px;color:#697469}.nav button[aria-pressed=true]{background:var(--green);color:white}.nav svg{width:21px;height:21px}.nav .count{margin-left:auto;font-size:10px;opacity:.6}.aside-block{border-top:1px solid var(--line);margin-top:29px;padding-top:23px}.preset{width:100%;padding:9px 0;text-align:left;border:0;display:flex;gap:10px;align-items:center;font-size:12px}.preset i{width:22px;height:22px;border-radius:50%;background:linear-gradient(90deg,var(--a) 50%,var(--b) 50%);border:3px solid white;box-shadow:0 0 0 1px var(--line)}.aside-note{font-size:10px;color:var(--muted);line-height:1.8;margin-top:24px}.stage-column{padding:30px 28px 24px;min-width:0}.stage-heading{display:flex;align-items:start;justify-content:space-between;margin-bottom:17px}.stage-heading h1{font:34px var(--serif);margin:3px 0}.stage-heading p{font-size:11px;color:var(--muted);margin:0}.edition{font-size:9px;border:1px solid #bac6b4;border-radius:20px;padding:5px 9px;color:#697d60;margin-top:10px}.stage{height:min(64vh,654px);min-height:410px;position:relative;background:#e8ecdf;border:1px solid #dde2d5;border-radius:140px 140px 12px 12px;overflow:hidden;display:flex;justify-content:center;align-items:center}.stage:before{content:'';position:absolute;inset:25px;border:1px solid #fff9;border-radius:120px 120px 5px 5px;pointer-events:none}.stage-label{position:absolute;left:26px;bottom:25px;font-size:9px;letter-spacing:2px;writing-mode:vertical-rl;color:#7e8b77}.stage-id{position:absolute;right:25px;top:45%;font:italic 13px var(--serif);color:#8b9784;writing-mode:vertical-rl}.character{height:97%;width:100%;position:relative;display:flex;align-items:center;justify-content:center}.character svg{max-height:100%;max-width:100%;height:100%;width:auto;filter:drop-shadow(0 8px 6px #23382f10)}.stage-bottom{display:flex;justify-content:space-between;align-items:center;margin:16px 0}.backgrounds{display:flex;gap:9px;align-items:center}.backgrounds span{font-size:10px;color:var(--muted);margin-right:5px}.swatch{width:24px;height:24px;border-radius:50%;background:var(--c);border:3px solid var(--paper);box-shadow:0 0 0 1px #d7d9d0;padding:0}.swatch[aria-pressed=true]{box-shadow:0 0 0 2px var(--ink)}.stage-tools{display:flex;gap:6px}.stage-tools button{padding:6px 12px;font-size:11px}.look-caption{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;align-items:center;gap:15px}.look-caption strong{font-size:13px;font-weight:500}.look-caption p{font-size:10px;color:var(--muted);margin:3px 0 0}.look-caption button{padding:10px 16px;white-space:nowrap;font-size:12px}.wardrobe{padding:34px 29px;border-left:1px solid var(--line);background:#fafaf6}.wardrobe-head{display:flex;justify-content:space-between;align-items:center}.wardrobe-head h2{font-size:22px;font-weight:500;margin:5px 0 4px}.wardrobe-head span{font:italic 24px var(--serif);color:#9aa491}.subcopy{font-size:11px;color:var(--muted);margin:0 0 22px}.items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.item{position:relative;min-height:157px;padding:0 0 12px;border:1px solid #e3e6dc;border-radius:10px;background:#f0f1ea;text-align:left;overflow:hidden}.item[aria-pressed=true]{border-color:#537650;box-shadow:inset 0 0 0 1px #537650;background:#e7ecde}.item .thumb{height:108px;display:flex;align-items:center;justify-content:center}.item svg{width:110px;height:100px}.item .item-name{display:block;font-size:11px;padding:0 12px}.item .item-type{display:block;font-size:8px;color:#89907f;letter-spacing:1px;padding:1px 12px 0}.check{display:none;position:absolute;right:9px;top:9px;background:#33573f;color:white;width:17px;height:17px;font-size:10px;border-radius:50%;text-align:center;line-height:17px}.item[aria-pressed=true] .check{display:block}.color-section{margin-top:23px;border-top:1px solid var(--line);padding-top:19px}.color-section .label{display:flex;justify-content:space-between;align-items:center;font-size:11px;margin-bottom:14px}.color-section .label span{font-size:10px;color:var(--muted)}.colors{display:flex;gap:13px;flex-wrap:wrap}.colors .swatch{width:26px;height:26px}.small-link{border:0;text-decoration:underline;text-underline-offset:4px;font-size:10px;padding:5px 0;color:#687464}.asset-tools{margin-top:22px;font-size:11px;color:var(--muted)}.asset-tools summary{cursor:pointer}.asset-tools p{font-size:10px;line-height:1.8}.asset-tools button{font-size:11px;padding:8px 10px;margin-right:4px}.notice{margin-top:20px;background:#eeeede;padding:11px 13px;font-size:10px;color:#76765b;border-radius:6px;line-height:1.8}.footer{font-size:9px;letter-spacing:1px;text-align:center;color:#899080;padding:14px;border-top:1px solid var(--line)}dialog{border:1px solid var(--line);border-radius:16px;padding:28px;background:var(--paper);color:var(--ink);width:min(700px,94vw);max-height:90vh}dialog::backdrop{background:#10281f66;backdrop-filter:blur(4px)}.dialog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.dialog-head h2{margin:0;font:28px var(--serif)}.dialog-head button{padding:6px 12px}.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.slot{border:1px solid var(--line);border-radius:10px;overflow:hidden;padding:10px;text-align:center;background:#e8ecdf}.slot svg{height:160px;max-width:100%}.slot p{font-size:11px;margin:4px 0 8px}.slot button{font-size:10px;padding:5px 8px;background:var(--paper);margin:2px}.slot.empty{min-height:222px;display:flex;flex-direction:column;justify-content:center;background:#efefe7;color:var(--muted)}.dialog-actions{margin-top:20px;display:flex;gap:8px;flex-wrap:wrap}.dialog-actions button{padding:9px 12px;font-size:12px}.dialog-help{font-size:11px;color:var(--muted);line-height:1.8}.export-options{display:flex;gap:15px;align-items:center;flex-wrap:wrap;font-size:12px}.export-options button{padding:11px 18px}.reference-preview{display:block;max-width:100%;max-height:58vh;margin:15px auto;object-fit:contain}.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);padding:12px 20px;background:#233c31;color:white;border-radius:8px;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:20;max-width:90vw}.toast.show{opacity:1;transform:translate(-50%,0)}.mobile-title{display:none}.hidden{display:none!important}@media(min-width:1400px){.stage-column{padding-left:48px;padding-right:48px}}@media(max-width:1100px){.layout{grid-template-columns:168px minmax(285px,1fr) 335px}aside{padding:30px 15px}.wardrobe{padding:30px 20px}.stage-column{padding:30px 18px}.status{display:none}.item{min-height:145px}.item .thumb{height:96px}.colors{gap:10px}}@media(max-width:800px){header{height:70px;padding:0 20px}.brandmark{font-size:25px}.brand small{font-size:8px;padding-left:10px}.brand{gap:10px}.top-actions button{font-size:10px;padding:8px}.layout{grid-template-columns:1fr 1fr}.layout aside{grid-column:1/-1;border:0;padding:14px 20px 0}.section-title,aside>.eyebrow,.aside-note{display:none}.nav{display:flex;gap:5px;overflow-x:auto}.nav button{padding:9px 12px;white-space:nowrap;font-size:12px}.nav .count{display:none}.nav svg{width:16px;height:16px}.aside-block{margin:9px 0 0;padding:8px 0;border-top:0;display:flex;gap:12px}.aside-block>.eyebrow{display:none}.preset{width:auto;padding:3px;font-size:10px}.preset i{width:17px;height:17px}.stage-column{padding:20px 14px}.stage-heading h1{font-size:28px}.edition{display:none}.stage{height:490px;min-height:0;border-radius:100px 100px 9px 9px}.wardrobe{padding:24px 14px}.items{gap:7px}.item .thumb{height:83px}.item{min-height:127px}.item svg{height:79px;width:90px}.stage-bottom{gap:12px;flex-wrap:wrap}.stage-label{left:15px;bottom:20px}.stage-id{right:13px}.look-caption{flex-wrap:wrap}.colors{gap:11px}.notice{font-size:9px}}@media(max-width:520px){header{padding:0 14px}.brand small{display:none}.layout{display:flex;flex-direction:column}.layout aside{order:1;padding:12px}.stage-column{order:0;padding:22px 18px 7px}.wardrobe{order:2;border:0;padding:14px 18px 24px}.stage-heading{margin-bottom:12px}.stage{height:435px;border-radius:110px 110px 9px 9px}.stage-heading p{font-size:10px}.stage-column .eyebrow{font-size:8px}.stage-bottom{margin:12px 0}.look-caption{padding-top:10px}.look-caption p{max-width:220px}.nav{justify-content:space-between}.nav button{padding:10px 9px;gap:5px;font-size:11px}.nav svg{width:15px}.aside-block{justify-content:center}.wardrobe-head h2{font-size:19px}.subcopy{margin-bottom:14px}.items{grid-template-columns:repeat(3,minmax(0,1fr))}.item .thumb{height:87px}.item{min-height:128px}.item .item-name{padding:0 9px;font-size:10px}.item .item-type{padding:2px 9px;font-size:7px}.slots{grid-template-columns:repeat(2,1fr)}dialog{padding:20px}.stage-id{display:none}.footer{font-size:8px}}
+.stage-tools{flex-wrap:wrap;justify-content:flex-end}.colors .swatch:first-child{color:white;font-size:15px;line-height:18px}.items .item-type{font-size:8px}
+.world-looks{border-top:1px solid var(--line);margin-top:20px;padding-top:18px;display:grid;gap:3px}.world-looks>.eyebrow{margin-bottom:8px;font-size:9px;letter-spacing:1px}
+@media(max-width:800px){.world-looks{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:8px;padding-top:10px}.world-looks>.eyebrow{grid-column:1/-1;margin:0}.world-looks .preset{min-height:38px;font-size:10px;justify-content:center}.world-looks .preset i{flex:none}.world-looks .preset{white-space:normal}.aside-block{flex-wrap:wrap}}
+
+#fit-dialog{width:min(1040px,96vw);max-width:none;padding:24px;max-height:94vh;overflow:auto}
+.fit-layout{display:grid;grid-template-columns:minmax(240px,1fr) minmax(260px,340px);gap:24px}
+.fit-controls{display:flex;flex-direction:column;gap:14px}
+.fit-controls label{font-size:13px;font-weight:600;display:block}
+.fit-controls select{width:100%;margin-top:6px;padding:10px;border:1px solid #bdc8b4;background:#fafbf6;border-radius:8px;color:#303a2c;font:inherit}
+.fit-preview{position:relative;height:min(65vh,660px);min-height:300px;background:#e8ecdf;border-radius:16px;overflow:hidden}
+#fit-character,#fit-guides{position:absolute;inset:0;width:100%;height:100%}
+#fit-character{touch-action:none;cursor:grab;outline-offset:-3px}
+#fit-character:active{cursor:grabbing}
+#fit-character svg,#fit-guides svg{width:100%;height:100%;display:block}
+#fit-guides{pointer-events:none;opacity:.65}
+.fit-row{display:grid;grid-template-columns:1fr 80px;align-items:center;gap:8px}
+.fit-row input[type=range]{grid-column:1/-1;width:100%;accent-color:#536647;margin:0}
+.fit-row input[type=number]{width:80px;padding:7px;border:1px solid #bcc8b1;border-radius:6px;background:#fff;color:#283421;font:inherit}
+.fit-inline{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fit-inline button,.fit-controls>button{border:1px solid #bcc8b1;border-radius:8px;padding:8px 12px;background:#f5f7ee;font:inherit;color:#303d2a}
+.fit-inline label{font-weight:400}
+.fit-help{font-size:12px;line-height:1.65;color:#627057;margin:0}
+.fit-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px;border-top:1px solid #d7ddce;padding-top:16px;flex-wrap:wrap}
+.fit-footer button{padding:11px 18px;border-radius:8px;border:1px solid #bdc8b4;cursor:pointer}
+#fit-status{font-size:12px;color:#526248;flex:1;min-width:180px}
+#open-fit{border:1px solid #899b7a;border-radius:7px;padding:5px 10px}
+@media(max-width:660px){#fit-dialog{padding:16px}.fit-layout{grid-template-columns:1fr;gap:16px}.fit-preview{height:46vh;min-height:260px}.fit-controls{gap:11px}.fit-controls .fit-row{grid-template-columns:1fr 75px}.fit-footer{position:sticky;bottom:-16px;background:#fafbf6;padding-bottom:12px}.fit-help{font-size:11px}}
+/* Keep the preview, close and save visible while the mobile controls scroll. */
+@media(max-width:660px){
+ #fit-dialog[open]{display:flex;flex-direction:column;height:calc(100dvh - 16px);max-height:calc(100dvh - 16px);padding:12px;overflow:hidden}
+ #fit-dialog .dialog-head{flex:none;margin-bottom:8px;gap:8px}
+ #fit-dialog .dialog-head h2{font-size:23px}
+ #fit-dialog .dialog-head button{min-height:44px}
+ .fit-layout{display:flex;flex-direction:column;gap:8px;flex:1;min-height:0;overflow:hidden}
+ .fit-layout>div:first-child{flex:none}
+ .fit-preview{height:clamp(130px,27dvh,230px);min-height:0}
+ .fit-layout>div:first-child>.fit-help{margin-top:4px;font-size:10px;line-height:1.4}
+ .fit-controls{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:4px 5px 10px;gap:10px}
+ .fit-inline button,.fit-inline label{min-height:44px;display:flex;align-items:center}
+ .fit-row input[type=range]{height:32px}
+ .fit-footer{position:static;flex:none;margin-top:8px;padding:8px 0 0;gap:6px}
+ #fit-status{min-width:0;font-size:11px}
+ #fit-save{flex:none;min-height:44px;padding:10px}
+}
+@media(max-height:540px) and (max-width:950px){
+ #fit-dialog[open]{display:flex;flex-direction:column;height:calc(100dvh - 16px);max-height:calc(100dvh - 16px);overflow:hidden;padding:12px}
+ #fit-dialog .dialog-head{margin-bottom:6px;flex:none}
+ .fit-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;min-height:0;flex:1;overflow:hidden}
+ .fit-layout>div:first-child{min-height:0;display:flex;flex-direction:column}
+ .fit-preview{height:auto;min-height:0;flex:1}
+ .fit-layout>div:first-child>.fit-help{font-size:10px;line-height:1.3}
+ .fit-controls{overflow-y:auto;min-height:0;padding:4px}
+ .fit-footer{position:static;flex:none;margin-top:6px;padding-top:6px}
+}
+</style>
+<meta name="description" content="노아의 옷장 — 의상과 헤어를 조합하고 나만의 코디를 저장하세요."><meta name="theme-color" content="#244c3b">
+</head>
+<body>
+<header><div class="brand"><span class="brandmark">NOAH.</span><small>WARDROBE<br>STUDIO</small></div><div class="status"><i class="dot"></i> YOUR OWN LITTLE FITTING ROOM</div><div class="top-actions"><button id="open-saves">내 코디 <span id="save-count">0</span></button><button id="open-export" class="primary">PNG 내보내기 ↗</button></div></header>
+<main class="layout">
+<aside><div class="eyebrow">THE COLLECTION</div><div class="section-title">Wardrobe</div><nav class="nav" aria-label="파츠 카테고리" id="categories"></nav><div class="aside-block"><div class="eyebrow" style="margin-bottom:12px">QUICK LOOKS</div><button class="preset" data-preset="0"><i style="--a:#323c3c;--b:#aaa495"></i>에디터의 하루</button><button class="preset" data-preset="1"><i style="--a:#e8e0ce;--b:#657867"></i>느긋한 주말</button><button class="preset" data-preset="2"><i style="--a:#414e61;--b:#30302d"></i>미팅 가는 날</button></div><div class="world-looks"><div class="eyebrow">WORLDS · COLLECTION 01</div><button class="preset" data-preset="3"><i style="--a:#344c3f;--b:#eee6cf"></i>왕립 도서관</button><button class="preset" data-preset="4"><i style="--a:#52697e;--b:#454643"></i>동방의 약사</button><button class="preset" data-preset="5"><i style="--a:#614330;--b:#b39871"></i>비행선 항해사</button></div><div class="aside-note">옷 한 벌, 작은 분위기 변화.<br>오늘의 나를 골라 보세요.</div></aside>
+<section class="stage-column" aria-label="캐릭터 미리보기"><div class="stage-heading"><div><div class="eyebrow">PERSONAL STYLE PLAYGROUND</div><h1>Make it yours.</h1><p>차분한 인상, 나만의 새로운 조합.</p></div><span class="edition">VOL. 02.5 / WORLDS 01</span></div><div class="stage" id="stage"><span class="stage-label">NOAH · FRONT VIEW</span><span class="stage-id">a quiet kind of confidence</span><div id="character" class="character"></div></div><div class="stage-bottom"><div class="backgrounds" id="backgrounds"><span>배경</span></div><div class="stage-tools"><button id="shuffle">⤨ 랜덤 코디</button><button id="reset">원화 코디</button><button id="undress">의상 해제</button><button id="zoom">얼굴 확대</button><button id="open-fit">파츠 조정</button></div></div><div class="look-caption"><div><strong id="look-title">나의 데일리 룩</strong><p id="look-description"></p></div><button id="save-look" class="primary">＋ 코디 저장</button></div></section>
+<section class="wardrobe" aria-label="옷장"><div class="eyebrow">PICK YOUR PIECE</div><div class="wardrobe-head"><h2 id="category-title">상의</h2><span id="category-number">01</span></div><p class="subcopy" id="category-description">오늘의 분위기를 만드는 첫 번째 선택.</p><div id="items" class="items"></div><div class="color-section"><div class="label">컬러 팔레트 <span id="color-name"></span></div><div id="colors" class="colors" aria-label="파츠 색상"></div></div><details class="asset-tools"><summary>내 파츠로 꾸미기</summary><p>1024 × 1536 비율의 전체 캔버스에 그린 투명 PNG를 사용해 주세요. 현재 카테고리를 대체합니다.</p><button id="upload-part">내 PNG 파츠 적용</button><button id="remove-part">기본 파츠 복원</button></details><div class="notice">개선 버전 원화 기준의 게임용 정면입니다.<br>자유로운 파츠 교체를 위해 팔을 내린 포즈로 맞췄습니다.<br><button class="small-link" id="open-reference">기준 턴어라운드 보기</button></div></section>
+</main><footer class="footer">NOAH WARDROBE STUDIO · LOCAL & OFFLINE · DRESS FOR YOUR OWN MOOD</footer>
+<dialog id="saves-dialog"><div class="dialog-head"><h2>My looks.</h2><button data-close="saves-dialog" aria-label="내 코디 닫기">닫기 ×</button></div><div class="slots" id="slots"></div><p class="dialog-help">최대 6개의 코디를 이 브라우저에 보관합니다. 코디 파일을 백업하면 다른 브라우저에서도 불러올 수 있어요.<br>가져오기는 현재 코디와 저장 슬롯을 교체합니다. 새 백업에는 파츠 보정값도 포함됩니다.<br>이전 v2 파일에 보정값이 없으면 현재 보정을 유지합니다.</p><div class="dialog-actions"><button id="backup">코디 파일 백업 ↓</button><button id="restore">코디 파일 가져오기 ↑</button></div></dialog>
+<dialog id="export-dialog"><div class="dialog-head"><h2>Take your look.</h2><button data-close="export-dialog">닫기 ×</button></div><p class="dialog-help">1280 × 1920 PNG로 저장합니다. 투명 배경을 선택하면 영상 편집 타임라인에 바로 올릴 수 있어요.</p><div class="export-options"><label><input id="transparent" type="checkbox" checked> 투명 배경</label><button id="download-png" class="primary">PNG 다운로드 ↓</button></div></dialog>
+<dialog id="reference-dialog"><div class="dialog-head"><h2>The reference.</h2><button data-close="reference-dialog">닫기 ×</button></div><p class="dialog-help">첨부한 개선 버전 턴어라운드를 기준으로 제작했습니다. 게임에서는 정면 고정 포즈를 사용합니다. 새 참고 이미지를 고르면 현재 창에서만 바뀝니다.</p><img id="reference-image" loading="lazy" class="reference-preview" alt="사용자가 등록한 기준 캐릭터 이미지"><button id="upload-reference" class="primary" style="padding:10px 16px">원본 이미지 선택</button></dialog>
+<input type="file" id="part-file" accept="image/png" hidden><input type="file" id="reference-file" accept="image/png,image/jpeg,image/webp" hidden><input type="file" id="backup-file" accept="application/json,.json" hidden><div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<dialog id="fit-dialog" aria-labelledby="fit-title">
+ <div class="dialog-head"><div><div class="eyebrow">FITTING STUDIO</div><h2 id="fit-title">파츠 조정</h2></div><button id="fit-cancel">취소 · 닫기 ×</button></div>
+ <div class="fit-layout">
+  <div><div class="fit-preview"><div id="fit-character" tabindex="0" role="group" aria-label="선택 파츠 이동: 드래그 또는 방향키. Shift 방향키는 5칸 이동."></div><div id="fit-guides" aria-hidden="true"></div></div><p class="fit-help">미리보기에서 드래그해 위치를 맞춰 보세요. 방향키 1칸 · Shift + 방향키 5칸.<br>기준 몸체와 얼굴은 고정됩니다. 목선이나 소매 모양 자체를 바꾸려면 원화 수정이 필요합니다.</p></div>
+  <div class="fit-controls">
+   <label for="fit-category">부위<select id="fit-category"></select></label>
+   <label for="fit-part">조정할 파츠<select id="fit-part"></select></label>
+   <div class="fit-inline"><button id="fit-zoom" aria-pressed="false">부위 확대</button><label><input id="fit-guide-toggle" type="checkbox" checked> 기준선</label></div>
+   <div id="fit-fields"><div class="fit-row"><label for="fit-x">좌우 위치</label><input id="fit-x" data-fit-field="x" type="number" min="-80" max="80" step="0.1"><input id="fit-x-range" data-fit-field="x" aria-label="좌우 위치 슬라이더" type="range" min="-80" max="80" step="0.1"></div>
+<div class="fit-row"><label for="fit-y">위아래 위치</label><input id="fit-y" data-fit-field="y" type="number" min="-80" max="80" step="0.1"><input id="fit-y-range" data-fit-field="y" aria-label="위아래 위치 슬라이더" type="range" min="-80" max="80" step="0.1"></div>
+<div class="fit-row"><label for="fit-scale">전체 크기 (%)</label><input id="fit-scale" data-fit-field="scale" type="number" min="80" max="120" step="0.1"><input id="fit-scale-range" data-fit-field="scale" aria-label="전체 크기 (%) 슬라이더" type="range" min="80" max="120" step="0.1"></div>
+<div class="fit-row"><label for="fit-width">가로 폭 (%)</label><input id="fit-width" data-fit-field="width" type="number" min="80" max="120" step="0.1"><input id="fit-width-range" data-fit-field="width" aria-label="가로 폭 (%) 슬라이더" type="range" min="80" max="120" step="0.1"></div>
+<div class="fit-row"><label for="fit-height">세로 길이 (%)</label><input id="fit-height" data-fit-field="height" type="number" min="80" max="120" step="0.1"><input id="fit-height-range" data-fit-field="height" aria-label="세로 길이 (%) 슬라이더" type="range" min="80" max="120" step="0.1"></div></div>
+   <div class="fit-inline"><label><input id="fit-before" type="checkbox">조정 전 비교</label><label><input id="fit-undress" type="checkbox">선택 파츠 벗겨보기</label></div>
+   <div class="fit-inline"><button id="fit-reset">이 파츠 기본값</button><button id="fit-undo">되돌리기</button></div>
+   <p class="fit-help">내장 파츠 33종을 조정합니다. 파츠를 바꾸면 미리보기에서 입혀 봅니다. 현재 코디의 옷 선택은 유지됩니다.<br>저장한 보정은 같은 파츠를 사용하는 모든 코디와 PNG에 적용됩니다. 사용자 PNG는 자체 좌표를 유지합니다.</p>
+  </div>
+ </div>
+ <div class="fit-footer"><span id="fit-status" role="status" aria-live="polite"></span><button id="fit-save" class="primary">보정 적용하고 저장</button></div>
+</dialog>
+<script>
+'use strict';
+const NS='http://www.w3.org/2000/svg', STORAGE='noah-wardrobe-v2';
+const categories=[['top','상의','오늘의 분위기를 만드는 첫 번째 선택.'],['bottom','하의','실루엣을 정돈하는 편안한 밸런스.'],['shoes','신발','룩을 완성하는 마지막 한 걸음.'],['glasses','안경','눈빛은 그대로, 인상은 조금 다르게.'],['hair','헤어','자연스러운 볼륨과 정돈된 라인.']];
+const catalog={top:[['tee','에센셜 티셔츠','ESSENTIAL'],['shirt','옥스퍼드 셔츠','OXFORD'],['knit','원화 맨투맨','ORIGINAL'],['hoodie','데일리 후디','CASUAL'],['blazer','테일러드 재킷','TAILORED']],bottom:[['slacks','테이퍼드 슬랙스','TAPERED'],['denim','스트레이트 데님','DENIM'],['wide','와이드 팬츠','RELAXED'],['shorts','이지 쇼츠','WEEKEND']],shoes:[['sneaker','로우 스니커즈','LOW TOP'],['loafer','페니 로퍼','CLASSIC'],['high','하이탑 스니커즈','HIGH TOP'],['derby','더비 슈즈','LEATHER']],glasses:[['none','무안경','NATURAL'],['square','볼드 스퀘어','SQUARE'],['round','라운드 프레임','ROUND'],['sun','선글라스','SUNGLASSES']],hair:[['part','소프트 가르마','SOFT PART'],['swept','내추럴 올백','SWEPT BACK'],['crop','텍스처 크롭','TEXTURED']]};
+for(const [key,label] of categories)if(key!=='glasses')catalog[key].unshift(['none',key==='shoes'?'맨발':label+' 해제','REMOVE']);
+const palettes={top:[['#343e3b','차콜'],['#e5dfcd','오트밀'],['#607561','세이지'],['#47556d','네이비'],['#8a6460','로즈 브라운'],['#ecece7','화이트']],bottom:[['#777768','스톤'],['#334153','인디고'],['#343837','차콜'],['#b6a48a','샌드'],['#667460','올리브'],['#dad5c8','크림']],shoes:[['#ece9df','아이보리'],['#343633','블랙'],['#795a45','브라운'],['#596956','올리브'],['#626c79','슬레이트']],glasses:[['#414039','그라파이트'],['#826744','브론즈'],['#999e9b','실버'],['#704b3a','토터스']],hair:[['#302d2b','내추럴 블랙'],['#504038','다크 브라운'],['#75604d','웜 브라운'],['#64615a','애쉬']]};
+for(const key of Object.keys(palettes))palettes[key][0][1]='원본 색상';
+const backgrounds=[['#e8ecdf','세이지'],['#e9e1d5','샌드'],['#e0e6eb','미스트'],['#ebdfe0','로즈']];
+const defaults={top:'knit',bottom:'slacks',shoes:'sneaker',glasses:'none',hair:'part',colors:{top:'#343e3b',bottom:'#777768',shoes:'#ece9df',glasses:'#414039',hair:'#302d2b'},bg:'#e8ecdf',custom:{}};
+const clone=x=>JSON.parse(JSON.stringify(x));let state=clone(defaults),saved=[],active='top',timer,storageWarning=false,zoomed=false;
+const $=id=>document.getElementById(id);
+function toast(message){$('toast').textContent=message;$('toast').classList.add('show');clearTimeout(timer);timer=setTimeout(()=>$('toast').classList.remove('show'),3500)}
+function persist(){try{localStorage.setItem(STORAGE,JSON.stringify(backupData()));storageWarning=false}catch(e){if(!storageWarning)toast('브라우저 저장이 제한되었어요. 코디 파일로 백업해 주세요.');storageWarning=true}}
+function validState(s){if(!s||typeof s!=='object'||!s.colors)throw Error('코디 형식이 올바르지 않습니다.');if(s.hair==='curtain')s={...s,hair:'swept'};const out=clone(defaults);for(const [key]of categories){if(!catalog[key].some(a=>a[0]===s[key]))throw Error('알 수 없는 파츠가 있습니다.');out[key]=s[key];if(!/^#[\da-f]{6}$/i.test(s.colors[key]))throw Error('색상 형식이 올바르지 않습니다.');out.colors[key]=s.colors[key];if(s.custom&&s.custom[key]){const value=s.custom[key];if(typeof value!=='string'||value.length>7500000||!/^data:image\/png;base64,[A-Za-z0-9+/=]+$/.test(value))throw Error('사용자 파츠 형식이 올바르지 않습니다.');out.custom[key]=value}}if(!backgrounds.some(b=>b[0]===s.bg))throw Error('배경 형식이 올바르지 않습니다.');out.bg=s.bg;return out}
+
+function validateSlots(slots){if(!Array.isArray(slots)||slots.length>6)throw Error('저장 슬롯은 최대 6개입니다.');return slots.map((x,i)=>({name:typeof x.name==='string'?x.name.slice(0,40):`LOOK ${i+1}`,state:validState(x.state)}))}
+function path(d,fill,extra=''){return `<path d="${d}" fill="${fill}" ${extra}/>`}
+function group(content,extra=''){return `<g stroke="#383c35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ${extra}>${content}</g>`}
+function line(d,opacity=.3){return path(d,'none',`stroke="#202923" stroke-opacity="${opacity}"`)}
+
+const ASSETS={"base-body":"assets/base-body.webp?v=365afa8cc22b","bottom-denim":"assets/bottom-denim.webp?v=e659b4c94f49","bottom-shorts":"assets/bottom-shorts.webp?v=144e2fedbb2a","bottom-slacks":"assets/bottom-slacks.webp?v=93717bb50c21","bottom-wide":"assets/bottom-wide.webp?v=74f295c701cc","glasses-round":"assets/glasses-round.webp?v=76884cd3d68b","glasses-square":"assets/glasses-square.webp?v=9693b678fe87","glasses-sun":"assets/glasses-sun.webp?v=09d0413f08d5","hair-crop":"assets/hair-crop.webp?v=6978f846ba46","hair-part":"assets/hair-part.webp?v=346a65b6977c","hair-swept":"assets/hair-swept.webp?v=6bb2fe0d8cba","reference-turnaround":"assets/reference-turnaround.webp?v=feb74c0ed94f","shoes-derby":"assets/shoes-derby.webp?v=a43ec12194ff","shoes-high":"assets/shoes-high.webp?v=aba111d4cfde","shoes-loafer":"assets/shoes-loafer.webp?v=3b6d2fcb06ab","shoes-sneaker":"assets/shoes-sneaker.webp?v=4b4144ce8366","top-blazer":"assets/top-blazer.webp?v=e4e95bc1d57c","top-hoodie":"assets/top-hoodie.webp?v=ddbda0e3e799","top-knit":"assets/top-knit.webp?v=f6a38f0098c5","top-shirt":"assets/top-shirt.webp?v=5ff830cc293a","top-tee-fitted":"assets/top-tee-fitted.webp?v=4621ba79af0a","top-librarian":"assets/top-librarian.webp?v=531d356542f1","bottom-traveler":"assets/bottom-traveler.webp?v=4c3ef4d3f8e4","shoes-traveler":"assets/shoes-traveler.webp?v=b8f0ad7a768a","top-apothecary":"assets/top-apothecary.webp?v=58d54085770f","top-aeronaut":"assets/top-aeronaut.webp?v=15def860a5e7","bottom-apothecary":"assets/bottom-apothecary.webp?v=ba783166edd6","bottom-aeronaut":"assets/bottom-aeronaut.webp?v=11604d0ecee0","shoes-apothecary":"assets/shoes-apothecary.webp?v=b8a168cc8918","shoes-aeronaut":"assets/shoes-aeronaut.webp?v=463ab49a178f","glasses-brass":"assets/glasses-brass.webp?v=7d551ee9fe93","glasses-crystal":"assets/glasses-crystal.webp?v=51a729a79db6","hair-wind":"assets/hair-wind.webp?v=2bb3ffefcaea","hair-curls":"assets/hair-curls.webp?v=2c3bf48eaf3f","hair-halfup":"assets/hair-halfup.webp?v=67d58a66db44"};
+const REGISTRATION={"hair-part":{"sx":0.208,"sy":0.21,"x":405,"y":46},"hair-swept":{"sx":0.175,"sy":0.12,"x":422,"y":48},"hair-crop":{"sx":0.195,"sy":0.185,"x":412,"y":2},"top-tee-fitted":{"sx":0.48,"sy":0.42,"x":266,"y":166},"top-knit":{"sx":0.56,"sy":0.515,"x":225,"y":146},"top-shirt":{"sx":0.515,"sy":0.45,"x":248,"y":220},"top-hoodie":{"sx":0.57,"sy":0.475,"x":220,"y":195},"top-blazer":{"sx":0.545,"sy":0.505,"x":233,"y":162},"bottom-slacks":{"sx":0.71,"sy":0.633,"x":148,"y":541},"bottom-denim":{"sx":0.7,"sy":0.595,"x":154,"y":575},"bottom-wide":{"sx":0.72,"sy":0.58,"x":143,"y":591},"bottom-shorts":{"sx":0.44,"sy":0.48,"x":287,"y":481},"shoes-loafer":{"sx":0.46,"sy":0.26,"x":277,"y":1175},"shoes-high":{"sx":0.445,"sy":0.27,"x":284,"y":1160},"shoes-derby":{"sx":0.445,"sy":0.265,"x":284,"y":1185},"glasses-square":{"sx":0.145,"sy":0.145,"x":438,"y":81},"glasses-round":{"sx":0.145,"sy":0.117,"x":438,"y":90},"glasses-sun":{"sx":0.15,"sy":0.13,"x":435,"y":78},"shoes-sneaker":{"sx":0.72,"sy":0.59,"x":143,"y":610},"top-librarian":{"sx":0.727,"sy":0.72,"x":140,"y":141},"bottom-traveler":{"sx":0.93,"sy":0.95,"x":36,"y":119},"shoes-traveler":{"sx":0.786,"sy":0.587,"x":113,"y":630},"top-apothecary":{"sx":0.49,"sy":0.5,"x":261,"y":170},"top-aeronaut":{"sx":0.5,"sy":0.5,"x":256,"y":190},"bottom-apothecary":{"sx":0.55,"sy":0.567,"x":232,"y":604},"bottom-aeronaut":{"sx":0.6,"sy":0.58,"x":205,"y":590},"shoes-apothecary":{"sx":0.62,"sy":0.484,"x":199,"y":792},"shoes-aeronaut":{"sx":0.645,"sy":0.463,"x":170,"y":831},"glasses-brass":{"sx":0.145,"sy":0.1,"x":438,"y":105},"glasses-crystal":{"sx":0.14,"sy":0.145,"x":440,"y":72},"hair-wind":{"sx":0.208,"sy":0.21,"x":405,"y":46},"hair-curls":{"sx":0.208,"sy":0.21,"x":405,"y":46},"hair-halfup":{"sx":0.22,"sy":0.22,"x":399,"y":45}};
+const NECKS={"tee":"M452 230 H572 V286 C574 310 551 328 512 328 C473 328 450 310 452 286Z","knit":"M452 230 H572 V289 C574 308 550 324 512 324 C474 324 450 307 452 289Z","shirt":"M460 230 H563 V291 C562 308 550 321 532 332 Q522 339 515 352 Q508 339 493 333 C475 326 463 311 460 291Z","hoodie":"M430 230 H593 V291 C588 309 562 326 512 337 C462 326 436 309 430 291Z","blazer":"M460 230 H571 V302 C572 316 548 326 514 326 C480 326 462 316 460 302Z"};
+const MEANS={"base-body":0.6759699442212576,"bottom-denim":0.238068738408065,"bottom-shorts":0.3503536224860418,"bottom-slacks":0.16890817945070397,"bottom-wide":0.46215482281398784,"glasses-round":0.3748746916459136,"glasses-square":0.4065690271447965,"glasses-sun":0.2585005471972778,"hair-crop":0.20272981107387192,"hair-part":0.20351398052192204,"hair-swept":0.22960537209014378,"shoes-derby":0.23228278530834423,"shoes-high":0.8178881910541327,"shoes-loafer":0.24233412378304955,"shoes-sneaker":0.6127888405252535,"top-blazer":0.33729838426664666,"top-hoodie":0.4693694387719153,"top-knit":0.21427565229465154,"top-shirt":0.8992587836432149,"top-tee-fitted":0.23960285595454425,"top-librarian":0.42,"bottom-traveler":0.32,"shoes-traveler":0.3,"top-apothecary":0.4,"top-aeronaut":0.38,"bottom-apothecary":0.32,"bottom-aeronaut":0.4,"shoes-apothecary":0.28,"shoes-aeronaut":0.3,"glasses-brass":0.4,"glasses-crystal":0.65,"hair-wind":0.22,"hair-curls":0.22,"hair-halfup":0.22};
+const FIT_MASKS={"description":"Body-space occlusion registration. These masks follow the associated clothing correction; original PNG pixels are preserved.","shirtTuck":{"x":350,"y":695,"width":324,"height":2400},"feetCutoff":{"sneaker":1390,"loafer":1420,"high":1420,"derby":1420,"traveler":1380,"apothecary":1370,"aeronaut":1355}};
+
+const OCCLUSION={"description":"Rear garment surfaces in registered body coordinates, after built-in top warps and before user fitting. Only their intersection with the fixed body alpha is hidden. Front rims remain visible.","openings":{"top:librarian":"M276 777 Q307 759 338 777 V820 H276Z M686 777 Q716 759 747 777 V820 H686Z","top:apothecary":"M278 790 Q310 771 343 790 V825 H278Z M681 790 Q714 771 747 790 V825 H681Z","top:blazer":"M269 793 Q304 781 342 792 V827 H269Z M681 792 Q719 781 754 793 V827 H681Z","bottom:wide":"M340 580 H690 V655 H634 Q510 678 388 655 H340Z","bottom:apothecary":"M350 580 H675 V658 H625 Q561 685 402 660 H350Z","bottom:shorts":"M350 580 H675 V661 H630 Q511 679 394 661 H350Z"},"bodyInFrontOfBottom":"M0 700 H355 V940 H0Z M669 700 H1024 V940 H669Z"};const WORLD_PARTS=[{"cat":"top","id":"librarian","name":"왕립 도서관 사서복","world":"ROYAL LIBRARY","registration":{"sx":0.727,"sy":0.72,"x":140,"y":141},"mean":0.42},{"cat":"bottom","id":"traveler","name":"여행자 바지","world":"FANTASY ROAD","registration":{"sx":0.93,"sy":0.95,"x":36,"y":119},"mean":0.32},{"cat":"shoes","id":"traveler","name":"여행자 앵클부츠","world":"FANTASY ROAD","registration":{"sx":0.786,"sy":0.587,"x":113,"y":630},"mean":0.3,"feetCutoff":1380},{"cat":"top","id":"apothecary","name":"유랑 약사 저고리","world":"EASTERN ROAD","registration":{"sx":0.49,"sy":0.5,"x":261,"y":170},"mean":0.4,"warp":{"y":[[0,0],[260,260],[300,292],[350,326],[450,438],[600,595],[790,790],[1536,1536]],"x":[[0,0],[280,280],[340,325],[380,379],[408,384],[512,512],[616,640],[644,645],[684,699],[744,744],[1024,1024]],"weight":[[0,0],[260,0],[310,1],[700,1],[790,0],[1536,0]]}},{"cat":"top","id":"aeronaut","name":"비행선 항해사 셔츠·조끼","world":"SKY VOYAGE","registration":{"sx":0.5,"sy":0.5,"x":256,"y":190},"mean":0.38},{"cat":"bottom","id":"apothecary","name":"약사의 통바지","world":"EASTERN ROAD","registration":{"sx":0.55,"sy":0.567,"x":232,"y":604},"mean":0.32},{"cat":"bottom","id":"aeronaut","name":"항해사 하이웨이스트 팬츠","world":"SKY VOYAGE","registration":{"sx":0.6,"sy":0.58,"x":205,"y":590},"mean":0.4},{"cat":"shoes","id":"apothecary","name":"약사의 천 부츠","world":"EASTERN ROAD","registration":{"sx":0.62,"sy":0.484,"x":199,"y":792},"mean":0.28,"feetCutoff":1370},{"cat":"shoes","id":"aeronaut","name":"항해사 레이스업 부츠","world":"SKY VOYAGE","registration":{"sx":0.645,"sy":0.463,"x":170,"y":831},"mean":0.3,"feetCutoff":1355},{"cat":"glasses","id":"brass","name":"황동 타원 안경","world":"ROYAL LIBRARY","registration":{"sx":0.145,"sy":0.1,"x":438,"y":105},"mean":0.4},{"cat":"glasses","id":"crystal","name":"수정 반무테 안경","world":"ARCANE STUDY","registration":{"sx":0.14,"sy":0.145,"x":440,"y":72},"mean":0.65},{"cat":"hair","id":"wind","name":"여행자의 바람 머리","world":"FANTASY ROAD","registration":{"sx":0.208,"sy":0.21,"x":405,"y":46},"mean":0.22},{"cat":"hair","id":"curls","name":"숲의 사자 곱슬머리","world":"FOREST CURLS","collection":"hair02","registration":{"sx":0.208,"sy":0.21,"x":405,"y":46},"mean":0.22},{"cat":"hair","id":"halfup","name":"달빛 숲 하프업","world":"MOONLIT HALF-UP","collection":"hair02","registration":{"sx":0.22,"sy":0.22,"x":399,"y":45},"mean":0.22,"backBelow":170,"thumbBox":"390 45 245 350"}];
+// Additive catalog: old IDs and v2 saved outfits retain their meaning.
+for(const p of WORLD_PARTS)catalog[p.cat].push([p.id,p.name,p.world]);
+const worldPart=(cat,id)=>WORLD_PARTS.find(p=>p.cat===cat&&p.id===id);
+
+// Corrections are shared by every outfit using the same built-in part.
+// The artwork registration and body remain unchanged. Units: 1024 x 1536 canvas.
+const FIT_DEFAULT = Object.freeze({x:0,y:0,scale:100,width:100,height:100});
+const FIT_LIMITS = Object.freeze({x:[-80,80],y:[-80,80],scale:[80,120],width:[80,120],height:[80,120]});
+const FIT_PIVOTS = Object.freeze({top:[512,320],bottom:[512,695],shoes:[512,1410],glasses:[512,174],hair:[512,160]});
+let fitProfile = {};
+function fitKey(cat,id){return cat+':'+id}
+function fitValue(profile,cat,id){return profile[fitKey(cat,id)] || FIT_DEFAULT}
+function validateFitting(input){
+ if(!input || typeof input!=='object' || Array.isArray(input))throw Error('파츠 보정 형식이 올바르지 않습니다.');
+ const out={};
+ for(const [key,value] of Object.entries(input)){
+  const [cat,id,...rest]=key.split(':');
+  if(rest.length || !Object.hasOwn(catalog,cat) || id==='none' || !catalog[cat].some(p=>p[0]===id))throw Error('알 수 없는 보정 파츠입니다.');
+  if(!value || typeof value!=='object' || Array.isArray(value))throw Error('보정 수치가 올바르지 않습니다.');
+  const next={};
+  for(const [field,[min,max]] of Object.entries(FIT_LIMITS)){
+   const n=value[field];if(typeof n!=='number'||!Number.isFinite(n)||n<min||n>max)throw Error('보정 수치가 허용 범위를 벗어났습니다.');
+   next[field]=Math.round(n*10)/10;
+  }
+  if(Object.keys(value).some(k=>!Object.hasOwn(FIT_DEFAULT,k)))throw Error('알 수 없는 보정 항목입니다.');
+  if(Object.keys(FIT_DEFAULT).some(k=>next[k]!==FIT_DEFAULT[k]))out[key]=next;
+ }
+ return out;
+}
+function fitTransform(cat,v){
+ const [px,py]=FIT_PIVOTS[cat];
+ return `translate(${v.x} ${v.y}) translate(${px} ${py}) scale(${v.scale*v.width/10000} ${v.scale*v.height/10000}) translate(${-px} ${-py})`;
+}
+function fittedPart(content,cat,id,profile){
+ return `<g data-fit-cat="${cat}" data-fit-id="${id}" transform="${fitTransform(cat,fitValue(profile,cat,id))}">${content}</g>`;
+}
+function backupData(){return {version:2,state:clone(state),saved:clone(saved),fitting:{version:1,parts:clone(fitProfile)}}}
+function parseBackup(data){
+ if(!data||data.version!==2)throw Error('지원하지 않는 코디 파일입니다.');
+ const next={state:validState(data.state),saved:validateSlots(data.saved),fitting:clone(fitProfile)};
+ if(data.fitting!==undefined){
+  if(data.fitting?.version!==1)throw Error('지원하지 않는 보정 파일입니다.');
+  next.fitting=validateFitting(data.fitting.parts);
+ }
+ return next;
+}
+// SVG preserveAspectRatio="xMidYMid meet": account for letterboxing during dragging.
+function fitPointer(clientX,clientY,rect,box){
+ const scale=Math.min(rect.width/box[2],rect.height/box[3]);
+ if(!(scale>0))return null;
+ return {x:box[0]+(clientX-rect.left-(rect.width-box[2]*scale)/2)/scale,
+  y:box[1]+(clientY-rect.top-(rect.height-box[3]*scale)/2)/scale};
+}
+
+let spriteSerial=0;
+function imageLayer(id,color=null){
+ if(!ASSETS[id])return '';
+ const m=REGISTRATION[id]||{x:0,y:0,sx:1,sy:1},uid='sp'+(++spriteSerial);
+ let colorOp='';
+ if(color){const rgb=[1,3,5].map(i=>parseInt(color.slice(i,i+2),16)/255),mean=MEANS[id]||.35;const rows=rgb.map(v=>[.2126*.72,.7152*.72,.0722*.72,0,v-mean*.72].join(' '));colorOp=`<feColorMatrix type="matrix" values="${rows.join(' ')} 0 0 0 1 0"/>`}
+ let mask='';
+ if(id==='glasses-round')mask='<ellipse cx="268" cy="735" rx="163" ry="156" fill="black"/><ellipse cx="758" cy="735" rx="163" ry="156" fill="black"/>';
+ if(id==='glasses-square')mask='<path d="M105 553 Q270 517 430 551 Q455 573 435 674 Q421 744 279 743 Q124 747 111 686 Q92 629 105 553Z M594 551 Q754 517 919 553 Q932 629 913 686 Q900 747 745 743 Q603 744 589 674 Q569 573 594 551Z" fill="black"/>';
+ const frame=['glasses-round','glasses-square','glasses-sun'].includes(id)?`<feMorphology in="SourceAlpha" operator="dilate" radius="${id==='glasses-sun'?4:8}" result="rim"/><feFlood flood-color="${color|| (id==='glasses-round'?'#4b3829':'#272a2c')}"/><feComposite in2="rim" operator="in" result="rimColor"/><feMerge><feMergeNode in="rimColor"/><feMergeNode in="SourceGraphic"/></feMerge>`:'';
+ const defs=`<defs><filter id="${uid}" color-interpolation-filters="sRGB" x="-5%" y="-5%" width="110%" height="110%">${frame}${colorOp}<feComponentTransfer><feFuncA type="linear" slope="1.08" intercept="-.08"/></feComponentTransfer></filter>${mask?`<mask id="${uid}-m" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1536"><rect width="1024" height="1536" fill="white"/>${mask}</mask>`:''}</defs>`;
+ return `${defs}<g transform="translate(${m.x} ${m.y}) scale(${m.sx} ${m.sy})"><image href="${ASSETS[id]}" width="1024" height="1536" preserveAspectRatio="none" filter="url(#${uid})" ${mask?`mask="url(#${uid}-m)"`:''}/></g>`;
+}
+function body(s=state,profile=fitProfile){
+ const shoesOn=s.shoes!=='none'&&!s.custom.shoes;
+ if(!shoesOn)return imageLayer('base-body');
+ const uid='bm'+(++spriteSerial),feetY=FIT_MASKS.feetCutoff[s.shoes];
+ return `<defs><mask id="${uid}" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1536"><rect width="1024" height="1536" fill="white"/><g data-fit-occlusion="shoes" transform="${fitTransform('shoes',fitValue(profile,'shoes',s.shoes))}"><rect x="-2048" y="${feetY}" width="5120" height="4096" fill="black"/></g></mask></defs><g mask="url(#${uid})">${imageLayer('base-body')}</g>`;
+}
+const TOP_FIT={
+ knit:[[0,0],[1536,1536]],
+ shirt:[[0,0],[280,277],[320,295],[400,343],[500,465],[650,635],[790,780],[900,900],[1536,1536]],
+ hoodie:[[0,0],[280,277],[320,308],[400,357],[500,475],[650,637],[790,785],[900,900],[1536,1536]],
+ blazer:[[0,0],[280,277],[320,299],[400,350],[500,472],[650,638],[790,782],[900,900],[1536,1536]]
+};
+const SLEEVE_FIT=[[0,0],[330,330],[365,381],[390,390],[634,634],[659,643],[694,694],[1024,1024]];
+const SLEEVE_WEIGHT=[[0,0],[400,0],[500,1],[650,1],[760,0],[1536,0]];
+function fittedCoordinate(value,anchors){let i=1;while(i<anchors.length-1&&value>anchors[i][0])i++;const [a,b]=[anchors[i-1],anchors[i]];return a[1]+(value-a[0])*(b[1]-a[1])/(b[0]-a[0])}
+function fitTop(content,id){
+ const warp=worldPart('top',id)?.warp,anchors=warp?.y||TOP_FIT[id];if(!anchors)return content;
+ const sleeveFit=warp?.x||SLEEVE_FIT,sleeveWeight=warp?.weight||SLEEVE_WEIGHT;
+ const uid='fit'+(++spriteSerial);
+ const filter=content.match(/ filter="(url\(#sp\d+\))"/)[1];content=content.replace(/ filter="url\(#sp\d+\)"/,'');
+ const at=y=>fittedCoordinate(y,anchors);
+ const cuts=[...new Set([...anchors.map(a=>a[0]),...sleeveWeight.map(a=>a[0])])].sort((a,b)=>a-b);
+ let clips='',pieces='',serial=0;
+ function piece(shape,matrix){const clipId=uid+'-p'+serial++;clips+=`<clipPath id="${clipId}">${shape}</clipPath>`;pieces+=`<g transform="matrix(${matrix.join(' ')})"><use href="#${uid}" clip-path="url(#${clipId})"/></g>`}
+ function triangle(points,matrix){
+  const area=points.reduce((sum,p,i)=>sum+p[0]*points[(i+1)%3][1]-p[1]*points[(i+1)%3][0],0),sign=Math.sign(area);
+  const normal=(a,b)=>{const dx=b[0]-a[0],dy=b[1]-a[1],d=Math.hypot(dx,dy);return [sign*dy/d,-sign*dx/d]};
+  const expanded=points.map((p,i)=>{const n0=normal(points[(i+2)%3],p),n1=normal(p,points[(i+1)%3]),d=1+n0[0]*n1[0]+n0[1]*n1[1];return [p[0]+2*(n0[0]+n1[0])/d,p[1]+2*(n0[1]+n1[1])/d].join(',')});
+  piece(`<polygon points="${expanded.join(' ')}"/>`,matrix);
+ }
+ for(let i=0;i<cuts.length-1;i++){
+  const ya=cuts[i],yb=cuts[i+1],sy=(at(yb)-at(ya))/(yb-ya),dy=at(ya)-ya*sy,w0=fittedCoordinate(ya,sleeveWeight),w1=fittedCoordinate(yb,sleeveWeight);
+  if(w0===0&&w1===0){piece(`<rect x="0" y="${ya-.65}" width="1024" height="${yb-ya+1.3}"/>`,[1,0,0,sy,0,dy]);continue}
+  for(let j=0;j<sleeveFit.length-1;j++){
+   const [left,right]=[sleeveFit[j],sleeveFit[j+1]],l=left[0],r=right[0],lt=l+(left[1]-l)*w0,rt=r+(right[1]-r)*w0,lb=l+(left[1]-l)*w1,rb=r+(right[1]-r)*w1;
+   if(w0===w1){const sx=(rt-lt)/(r-l);piece(`<rect x="${l-.65}" y="${ya-.65}" width="${r-l+1.3}" height="${yb-ya+1.3}"/>`,[sx,0,0,sy,lt-l*sx,dy]);continue}
+   const sx0=(rt-lt)/(r-l),skew0=(lb-lt)/(yb-ya),sx1=(rb-lb)/(r-l),skew1=(rb-rt)/(yb-ya);
+   triangle([[l,ya],[r,ya],[l,yb]],[sx0,0,skew0,sy,lt-sx0*l-skew0*ya,dy]);
+   triangle([[r,yb],[l,yb],[r,ya]],[sx1,0,skew1,sy,rt-sx1*r-skew1*ya,dy]);
+  }
+ }
+ return `<defs><g id="${uid}">${content}</g>${clips}</defs><g filter="${filter}">${pieces}</g>`;
+}
+function neckline(content,id){
+ if(!NECKS[id])return content;const uid='collar'+(++spriteSerial),path=NECKS[id];
+ return `<defs><clipPath id="${uid}-opening"><path d="${path}"/></clipPath><filter id="${uid}-ink" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/></filter><mask id="${uid}" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1536"><rect width="1024" height="1536" fill="white"/><g clip-path="url(#${uid}-opening)"><image href="${ASSETS['base-body']}" width="1024" height="1536" filter="url(#${uid}-ink)"/></g></mask></defs><g mask="url(#${uid})">${content}</g>`;
+}
+function skinOpening(content,path){const uid='opening'+(++spriteSerial);return `<defs><clipPath id="${uid}-clip"><path d="${path}"/></clipPath><filter id="${uid}-ink"><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/></filter><mask id="${uid}" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1536"><rect width="1024" height="1536" fill="white"/><g clip-path="url(#${uid}-clip)"><image href="${ASSETS['base-body']}" width="1024" height="1536" filter="url(#${uid}-ink)"/></g></mask></defs><g mask="url(#${uid})">${content}</g>`}
+// Keep the body stationary. Garment openings move with the garment, while hands
+// and the body's alpha occlude only rear surfaces, never the complete silhouette.
+function occludeRear(content,cat,id,profile){
+ const opening=OCCLUSION.openings[fitKey(cat,id)],hands=cat==='bottom'?OCCLUSION.bodyInFrontOfBottom:'';
+ if(!opening&&!hands)return content;
+ const uid='rear'+(++spriteSerial),regions=(opening?`<path data-fit-opening="${cat}" transform="${fitTransform(cat,fitValue(profile,cat,id))}" d="${opening}"/>`:'')+(hands?`<path d="${hands}"/>`:'');
+ return `<defs><clipPath id="${uid}-region" clipPathUnits="userSpaceOnUse">${regions}</clipPath><filter id="${uid}-black"><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/></filter><mask id="${uid}" maskUnits="userSpaceOnUse" x="-2048" y="-2048" width="5120" height="6144"><rect x="-2048" y="-2048" width="5120" height="6144" fill="white"/><g clip-path="url(#${uid}-region)"><g filter="url(#${uid}-black)">${imageLayer('base-body')}</g></g></mask></defs><g data-body-occlusion="${cat}" mask="url(#${uid})">${content}</g>`;
+}
+function drawPart(cat,id,c,profile=fitProfile){if(id==='none')return '';const assetId=cat==='top'&&id==='tee'?'top-tee-fitted':cat+'-'+id;let content=imageLayer(assetId,c===palettes[cat][0][0]?null:c);if(cat==='top')content=neckline(fitTop(content,id),id);if(cat==='shoes'&&id==='loafer')content=skinOpening(content,'M390 1290 H474 V1378 C465 1398 456 1409 438 1410 C424 1411 414 1406 406 1398Z M550 1290 H634 L618 1398 C610 1406 600 1411 586 1410 C568 1409 559 1398 550 1378Z');return fittedPart(content,cat,id,profile)}
+function part(cat,s=state,profile=fitProfile){return s.custom[cat]?`<image href="${s.custom[cat]}" x="0" y="0" width="1024" height="1536" preserveAspectRatio="none"/>`:occludeRear(drawPart(cat,s[cat],s.colors[cat],profile),cat,s[cat],profile)}
+function clothing(s,profile=fitProfile){const tucked=s.top==='shirt'&&s.bottom!=='none'&&!s.custom.top&&!s.custom.bottom;if(!tucked)return part('bottom',s,profile)+part('top',s,profile);const uid='tuck'+(++spriteSerial),m=FIT_MASKS.shirtTuck;return `<defs><mask id="${uid}" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1536"><rect width="1024" height="1536" fill="white"/><g data-fit-occlusion="bottom" transform="${fitTransform('bottom',fitValue(profile,'bottom',s.bottom))}"><rect x="${m.x}" y="${m.y}" width="${m.width}" height="${m.height}" fill="black"/></g></mask></defs><g mask="url(#${uid})">${part('top',s,profile)}</g>${part('bottom',s,profile)}`}
+function hairLayer(s,profile,back=false){
+ const cut=worldPart('hair',s.hair)?.backBelow;
+ if(!cut||s.custom.hair)return back?'':part('hair',s,profile);
+ const uid='hairdepth'+(++spriteSerial),rect=back?`x="-2048" y="${cut}" width="5120" height="4096"`:`x="-2048" y="-2048" width="5120" height="${cut+2048}"`;
+ const image=imageLayer('hair-'+s.hair,s.colors.hair===palettes.hair[0][0]?null:s.colors.hair);
+ return `<defs><clipPath id="${uid}"><rect ${rect}/></clipPath></defs><g ${back?'data-fit-back="hair"':`data-fit-cat="hair" data-fit-id="${s.hair}"`} transform="${fitTransform('hair',fitValue(profile,'hair',s.hair))}"><g clip-path="url(#${uid})">${image}</g></g>`;
+}
+function svg(s=state,ground=true,profile=fitProfile){return `<svg xmlns="${NS}" viewBox="0 0 1024 1536" width="400" height="600" role="img" aria-label="원화 기준 정면 캐릭터의 현재 코디">${ground?'<ellipse cx="512" cy="1488" rx="207" ry="20" fill="#556447" opacity=".12"/>':''}${hairLayer(s,profile,true)}${body(s,profile)}${part('shoes',s,profile)}${clothing(s,profile)}${hairLayer(s,profile)}${part('glasses',s,profile)}</svg>`}
+
+
+// Web build only: nested SVG images must be embedded before SVG -> canvas export.
+// Relative URLs work in the live page but are not portable inside a Blob SVG.
+const webImageCache=new Map();
+async function prepareExportSvg(content){
+ const sources=[...new Set([...content.matchAll(/\bhref="([^"]+)"/g)].map(m=>m[1]).filter(src=>!src.startsWith('data:')&&!src.startsWith('#')))];
+ await Promise.all(sources.map(async src=>{
+  if(!webImageCache.has(src)){
+   const task=(async()=>{const response=await fetch(new URL(src,document.baseURI));if(!response.ok)throw Error('Image download failed');const blob=await response.blob();return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(Error('Image read failed'));reader.readAsDataURL(blob)})})();
+   webImageCache.set(src,task);task.catch(()=>webImageCache.delete(src));
+  }
+  const data=await webImageCache.get(src);content=content.split('href="'+src+'"').join('href="'+data+'"');
+ }));
+ return content;
+}
+
+const icons={top:'M3 7 8 4 10 6 14 6 16 4 21 7 18 12 16 11 16 21 8 21 8 11 6 12Z',bottom:'M7 3 17 3 19 21 13 21 12 11 11 21 5 21Z',shoes:'M4 8 10 8 12 13 20 15 21 20 3 20Z',glasses:'M2 8 10 8 10 15 2 15Z M14 8 22 8 22 15 14 15Z M10 10 14 10',hair:'M4 17 Q1 3 12 3 Q23 3 20 18 L18 11 Q13 10 12 7 Q9 12 6 12Z'};
+function icon(key){return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="${icons[key]}"/></svg>`}
+const viewboxes={top:"225 270 580 580",bottom:"315 620 410 850",shoes:"305 1310 415 185",glasses:"430 140 165 65",hair:"405 40 215 200"};
+function renderCategories(){$('categories').innerHTML=categories.map(([key,label])=>`<button data-category="${key}" aria-pressed="${key===active}">${icon(key)}${label}<span class="count">${String(catalog[key].length).padStart(2,'0')}</span></button>`).join('')}
+function renderWardrobe(){const idx=categories.findIndex(x=>x[0]===active);$('category-title').textContent=categories[idx][1];$('category-number').textContent=String(idx+1).padStart(2,'0');$('category-description').textContent=categories[idx][2];$('items').innerHTML=catalog[active].map(([id,name,type])=>'<button class="item" data-item="'+id+'" aria-pressed="'+(!state.custom[active]&&state[active]===id)+'"><span class="check">✓</span><span class="thumb">'+(id==='none'?'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="23" stroke="#82917a" fill="none" stroke-width="1.3"/><path d="M34 66 66 34" stroke="#82917a" stroke-width="1.3"/></svg>':'<svg viewBox="'+(worldPart(active,id)?.thumbBox||viewboxes[active])+'" aria-hidden="true">'+drawPart(active,id,state.colors[active])+'</svg>')+'</span><span class="item-name">'+name+'</span><span class="item-type">'+type+'</span></button>').join('');$('colors').innerHTML=palettes[active].map(([color,name],i)=>'<button class="swatch" data-color="'+color+'" style="--c:'+color+'" aria-label="'+name+'" title="'+name+'" aria-pressed="'+(state.colors[active]===color)+'" '+(state.custom[active]||state[active]==='none'?'disabled':'')+'>'+(i===0?'↺':'')+'</button>').join('');$('color-name').textContent=state.custom[active]?'사용자 PNG 원본 색상':state[active]==='none'?'해제됨':palettes[active].find(p=>p[0]===state.colors[active])?.[1]||'사용자 컬러';$('remove-part').disabled=!state.custom[active];renderCategories()}
+function renderStage(){$('character').innerHTML=svg();if(zoomed)$('character').querySelector('svg').setAttribute('viewBox','345 25 335 440');$('stage').style.background=state.bg;$('look-description').textContent=['top','bottom','shoes'].map(c=>state.custom[c]?'내 '+categories.find(v=>v[0]===c)[1]:catalog[c].find(x=>x[0]===state[c])[1]).join(' · ');$('backgrounds').innerHTML='<span>배경</span>'+backgrounds.map(([c,n])=>`<button class="swatch" style="--c:${c}" data-bg="${c}" aria-label="${n} 배경" aria-pressed="${state.bg===c}"></button>`).join('');$('save-count').textContent=saved.length}
+function render(){renderStage();renderWardrobe()}
+function changed(title='나의 데일리 룩'){render();$('look-title').textContent=title;persist()}
+$('categories').addEventListener('click',e=>{const b=e.target.closest('[data-category]');if(b){active=b.dataset.category;renderWardrobe()}});
+$('items').addEventListener('click',e=>{const b=e.target.closest('[data-item]');if(b){state[active]=b.dataset.item;delete state.custom[active];changed()}});
+$('colors').addEventListener('click',e=>{const b=e.target.closest('[data-color]');if(b){state.colors[active]=b.dataset.color;changed()}});
+$('backgrounds').addEventListener('click',e=>{const b=e.target.closest('[data-bg]');if(b){state.bg=b.dataset.bg;changed()}});
+const presets=[{title:'에디터의 하루',items:['knit','slacks','sneaker','none','part'],colors:['#343e3b','#777768','#ece9df','#414039','#302d2b']},{title:'느긋한 주말',items:['hoodie','wide','high','round','swept'],colors:['#e5dfcd','#667460','#ece9df','#826744','#504038']},{title:'미팅 가는 날',items:['blazer','slacks','derby','square','part'],colors:['#47556d','#343837','#343633','#414039','#302d2b']}];
+presets.push(
+ {title:'왕립 도서관의 오후',items:['librarian','traveler','traveler','brass','part'],colors:categories.map(([c])=>palettes[c][0][0])},
+ {title:'동방의 유랑 약사',items:['apothecary','apothecary','apothecary','crystal','swept'],colors:categories.map(([c])=>palettes[c][0][0])},
+ {title:'비행선의 항해사',items:['aeronaut','aeronaut','aeronaut','none','wind'],colors:categories.map(([c])=>palettes[c][0][0])}
+);
+document.querySelectorAll('[data-preset]').forEach(b=>b.onclick=()=>{const p=presets[Number(b.dataset.preset)];categories.forEach(([c],i)=>{state[c]=p.items[i];state.colors[c]=p.colors[i]});state.custom={};changed(p.title)});
+$('shuffle').onclick=()=>{categories.forEach(([c])=>{const options=catalog[c].filter(v=>c==='glasses'||v[0]!=='none');state[c]=options[Math.floor(Math.random()*options.length)][0];state.colors[c]=palettes[c][Math.floor(Math.random()*palettes[c].length)][0]});state.custom={};changed('뜻밖의 좋은 조합');toast('새로운 코디를 골랐어요.')};
+$('reset').onclick=()=>{state=clone(defaults);changed();toast('기본 무안경 코디로 돌아왔어요.')};
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$(b.dataset.close).close());
+$('open-export').onclick=()=>$('export-dialog').showModal();$('open-reference').onclick=()=>$('reference-dialog').showModal();
+function renderSlots(){$('slots').replaceChildren();for(let i=0;i<6;i++){const div=document.createElement('div');div.className='slot'+(saved[i]?'':' empty');if(saved[i]){div.innerHTML=svg(saved[i].state);const p=document.createElement('p');p.textContent=saved[i].name;div.append(p);for(const [text,action]of [['입어보기',()=>{state=clone(saved[i].state);changed(saved[i].name);$('saves-dialog').close();toast('저장한 코디를 입었어요.')}],['삭제',()=>{saved.splice(i,1);persist();renderSlots();renderStage()}]]){const b=document.createElement('button');b.textContent=text;b.onclick=action;div.append(b)}}else{div.innerHTML=`<span class="eyebrow">LOOK 0${i+1}</span><p>새로운 코디를 기다려요.</p>`;const b=document.createElement('button');b.textContent='현재 코디 저장';b.onclick=saveLook;div.append(b)}$('slots').append(div)}}
+function saveLook(){if(saved.length===6){toast('저장 공간이 가득 찼어요. 내 코디에서 한 개를 삭제해 주세요.');return}saved.push({name:`LOOK ${String(saved.length+1).padStart(2,'0')} · ${$('look-title').textContent}`,state:clone(state)});persist();renderStage();renderSlots();toast(storageWarning?'현재 창에 저장했어요. 코디 파일 백업이 필요해요.':'코디를 저장했어요.')}
+$('save-look').onclick=saveLook;$('open-saves').onclick=()=>{renderSlots();$('saves-dialog').showModal()};
+function download(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000)}
+$('backup').onclick=()=>{download(new Blob([JSON.stringify(backupData(),null,2)],{type:'application/json'}),'noah-looks-v2.json');toast('코디 백업 파일을 만들었어요.')};$('restore').onclick=()=>$('backup-file').click();
+$('backup-file').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{if(f.size>50000000)throw Error('50MB 이하의 코디 파일을 사용해 주세요.');const data=JSON.parse(await f.text());const next=parseBackup(data);state=next.state;saved=next.saved;fitProfile=next.fitting;changed();renderSlots();toast('코디 파일을 불러왔어요.')}catch(err){toast(err.message||'파일을 읽을 수 없습니다.')}};
+$('download-png').onclick=async()=>{const b=$('download-png');b.disabled=true;b.textContent='이미지 준비 중…';try{const s=clone(state);let content=svg(s,false).replace('width="400" height="600"','width="1280" height="1920"');if(!$('transparent').checked)content=content.replace(/(<svg[^>]*>)/,'$1'+`<rect width="1024" height="1536" fill="${s.bg}"/>`);if(typeof prepareExportSvg==='function')content=await prepareExportSvg(content);const blob=new Blob([content],{type:'image/svg+xml;charset=utf-8'}),url=URL.createObjectURL(blob);try{const img=new Image();await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url});const canvas=document.createElement('canvas');canvas.width=1280;canvas.height=1920;canvas.getContext('2d').drawImage(img,0,0,1280,1920);const png=await new Promise(r=>canvas.toBlob(r,'image/png'));if(!png)throw Error();download(png,'noah-look'+($('transparent').checked?'-transparent':'')+'.png');toast('PNG를 만들었어요. 다운로드 폴더를 확인해 주세요.')}finally{URL.revokeObjectURL(url)}}catch(e){toast('PNG 저장에 실패했어요. Edge 또는 Chrome에서 다시 시도해 주세요.')}finally{b.disabled=false;b.textContent='PNG 다운로드 ↓'}};
+function readImage(f){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>{const img=new Image();img.onload=()=>resolve({url:reader.result,width:img.naturalWidth,height:img.naturalHeight});img.onerror=()=>reject(Error('이미지를 읽을 수 없습니다.'));img.src=reader.result};reader.onerror=()=>reject(Error('파일을 읽을 수 없습니다.'));reader.readAsDataURL(f)})}
+let uploadCategory='top';$('upload-part').onclick=()=>{uploadCategory=active;$('part-file').click()};
+$('part-file').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{if(f.type!=='image/png'||f.size>5*1024*1024)throw Error('5MB 이하 PNG 파일을 선택해 주세요.');const img=await readImage(f);if(Math.abs(img.width/img.height-1024/1536)>.015)throw Error('파츠는 1024 × 1536 비율의 전체 캔버스로 만들어 주세요.');state.custom[uploadCategory]=img.url;changed();toast(storageWarning?'파츠를 적용했어요. 영구 보관하려면 JSON으로 백업해 주세요.':'내 PNG 파츠를 적용했어요.')}catch(err){toast(err.message)}};
+$('remove-part').onclick=()=>{delete state.custom[active];changed();toast('기본 파츠로 복원했어요.')};
+$('upload-reference').onclick=()=>$('reference-file').click();$('reference-file').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{if(!['image/png','image/jpeg','image/webp'].includes(f.type)||f.size>15*1024*1024)throw Error('15MB 이하 PNG, JPG, WebP를 선택해 주세요.');const img=await readImage(f);$('reference-image').src=img.url;$('reference-image').classList.remove('hidden');toast('원본 이미지를 참고 화면에 등록했어요.')}catch(err){toast(err.message)}};
+$('reference-image').src=ASSETS['reference-turnaround'];
+$('undress').onclick=()=>{state.top='none';state.bottom='none';state.shoes='none';state.glasses='none';state.custom={};changed('기본 몸체 · 속옷 착용');toast('의상을 해제했어요. 기본 속옷은 유지됩니다.')};
+$('zoom').onclick=()=>{zoomed=!zoomed;$('zoom').textContent=zoomed?'전체 보기':'얼굴 확대';renderStage()};
+
+let fitDraft={},fitOriginal={},fitOutfit=null,fitCategory='top',fitId='knit',fitZoomed=false,fitHistory=[],fitDrag=null;
+const FIT_VIEWS={top:[200,230,624,700],bottom:[270,600,484,900],shoes:[260,1270,504,250],glasses:[370,65,284,310],hair:[345,0,334,355]};
+function fitBox(){return fitZoomed?FIT_VIEWS[fitCategory]:[0,0,1024,1536]}
+function fitEditingValue(){return fitValue(fitDraft,fitCategory,fitId)}
+function rememberFit(){
+ if(fitHistory.length && JSON.stringify(fitHistory[fitHistory.length-1])===JSON.stringify(fitDraft))return;
+ fitHistory.push(clone(fitDraft));if(fitHistory.length>60)fitHistory.shift();
+}
+function selectFitPart(){
+ const options=catalog[fitCategory].filter(p=>p[0]!=='none');
+ if(!options.some(p=>p[0]===fitOutfit[fitCategory]))fitOutfit[fitCategory]=options[0][0];
+ fitId=fitOutfit[fitCategory];delete fitOutfit.custom[fitCategory];
+ $('fit-part').innerHTML=options.map(([id,name])=>`<option value="${id}">${name}</option>`).join('');
+ $('fit-part').value=fitId;$('fit-before').checked=false;$('fit-undress').checked=false;
+ syncFitControls();renderFitPreview();
+}
+function openFitting(){
+ fitOriginal=clone(fitProfile);fitDraft=clone(fitProfile);fitOutfit=clone(state);fitHistory=[];fitDrag=null;fitZoomed=false;
+ fitCategory=active;$('fit-category').innerHTML=categories.map(([key,name])=>`<option value="${key}">${name}</option>`).join('');
+ $('fit-category').value=fitCategory;$('fit-guide-toggle').checked=true;
+ selectFitPart();$('fit-dialog').showModal();
+}
+function syncFitControls(editingInput=null){
+ const v=fitEditingValue();
+ for(const k of Object.keys(FIT_DEFAULT))for(const suffix of ['','-range']){const input=$('fit-'+k+suffix);if(input!==editingInput)input.value=v[k]}
+ $('fit-undo').disabled=fitHistory.length===0;
+ const changed=JSON.stringify(validateFitting(fitDraft))!==JSON.stringify(validateFitting(fitOriginal));
+ $('fit-status').textContent=changed?'아직 적용하지 않은 변경이 있어요.':'저장된 보정과 같은 상태입니다.';
+}
+function fitGuides(){
+ const [px,py]=FIT_PIVOTS[fitCategory];
+ $('fit-guides').innerHTML=$('fit-guide-toggle').checked?`<svg xmlns="${NS}" viewBox="${fitBox().join(' ')}"><g fill="none" stroke="#596d9b" stroke-width="1.2" stroke-dasharray="6 6" vector-effect="non-scaling-stroke"><path d="M512 0V1536 M0 ${py}H1024"/><circle cx="${px}" cy="${py}" r="8"/></g></svg>`:'';
+}
+function renderFitPreview(){
+ const look=clone(fitOutfit);
+ if($('fit-undress').checked){look[fitCategory]='none';delete look.custom[fitCategory]}
+ const profile=$('fit-before').checked?fitOriginal:fitDraft;
+ $('fit-character').innerHTML=svg(look,true,profile).replace('viewBox="0 0 1024 1536"',`viewBox="${fitBox().join(' ')}"`);
+ $('fit-zoom').textContent=fitZoomed?'전체 보기':'부위 확대';$('fit-zoom').setAttribute('aria-pressed',String(fitZoomed));fitGuides();
+}
+function updateFitTransform(){
+ const group=$('fit-character').querySelector(`[data-fit-cat="${fitCategory}"]`);
+ if(group)group.setAttribute('transform',fitTransform(fitCategory,fitEditingValue()));
+ const occlusion=$('fit-character').querySelector(`[data-fit-occlusion="${fitCategory}"]`);
+ if(occlusion)occlusion.setAttribute('transform',fitTransform(fitCategory,fitEditingValue()));
+ for(const attr of ['data-fit-opening','data-fit-back']){
+  const linked=$('fit-character').querySelector(`[${attr}="${fitCategory}"]`);
+  if(linked)linked.setAttribute('transform',fitTransform(fitCategory,fitEditingValue()));
+ }
+}
+function endComparison(){
+ if($('fit-before').checked||$('fit-undress').checked){$('fit-before').checked=false;$('fit-undress').checked=false;renderFitPreview()}
+}
+function setFitField(field,n,editingInput=null){
+ if(!Number.isFinite(n)){syncFitControls();return}
+ const [min,max]=FIT_LIMITS[field],v={...fitEditingValue()};v[field]=Math.round(Math.max(min,Math.min(max,n))*10)/10;
+ fitDraft[fitKey(fitCategory,fitId)]=v;endComparison();syncFitControls(editingInput);updateFitTransform();
+}
+function pointInFitting(e){return fitPointer(e.clientX,e.clientY,$('fit-character').getBoundingClientRect(),fitBox())}
+$('open-fit').onclick=openFitting;
+$('fit-cancel').onclick=()=>$('fit-dialog').close();
+$('fit-dialog').addEventListener('close',()=>{fitDrag=null;$('open-fit').focus()});
+$('fit-category').onchange=e=>{fitCategory=e.target.value;selectFitPart()};
+$('fit-part').onchange=e=>{fitOutfit[fitCategory]=e.target.value;selectFitPart()};
+$('fit-zoom').onclick=()=>{fitZoomed=!fitZoomed;renderFitPreview()};
+$('fit-guide-toggle').onchange=fitGuides;
+for(const id of ['fit-before','fit-undress'])$(id).onchange=renderFitPreview;
+for(const key of Object.keys(FIT_DEFAULT))for(const suffix of ['','-range']){
+ const input=$('fit-'+key+suffix);
+ input.addEventListener('focus',()=>rememberFit());
+ input.addEventListener('pointerdown',()=>rememberFit());
+ input.addEventListener('input',e=>{
+  const raw=e.target.value;
+  // Preserve in-progress text (including an empty field or a minus sign).
+  // The preview uses a bounded value; blur normalizes the displayed number.
+  if(raw!=='')setFitField(key,Number(raw),suffix===''?e.target:null);
+ });
+ input.addEventListener('blur',syncFitControls);
+}
+$('fit-reset').onclick=()=>{rememberFit();delete fitDraft[fitKey(fitCategory,fitId)];endComparison();syncFitControls();updateFitTransform()};
+$('fit-undo').onclick=()=>{if(!fitHistory.length)return;fitDraft=fitHistory.pop();endComparison();syncFitControls();renderFitPreview()};
+$('fit-save').onclick=()=>{
+ fitProfile=validateFitting(fitDraft);persist();render();$('fit-dialog').close();
+ toast(storageWarning?'현재 창에 적용했어요. 내 코디 → 코디 파일 백업으로 보관해 주세요.':'파츠 보정을 저장했어요. 코디와 PNG에 함께 반영됩니다.');
+};
+$('fit-character').addEventListener('pointerdown',e=>{
+ if(e.button!==0||e.isPrimary===false)return;endComparison();const p=pointInFitting(e);if(!p)return;
+ e.preventDefault();$('fit-character').focus();rememberFit();fitDrag={id:e.pointerId,start:p,value:{...fitEditingValue()}};$('fit-character').setPointerCapture(e.pointerId);
+});
+$('fit-character').addEventListener('pointermove',e=>{
+ if(!fitDrag||fitDrag.id!==e.pointerId)return;const p=pointInFitting(e);if(!p)return;
+ setFitField('x',fitDrag.value.x+p.x-fitDrag.start.x);setFitField('y',fitDrag.value.y+p.y-fitDrag.start.y);
+});
+function finishFitDrag(e){if(fitDrag?.id===e.pointerId){if($('fit-character').hasPointerCapture(e.pointerId))$('fit-character').releasePointerCapture(e.pointerId);fitDrag=null}}
+for(const event of ['pointerup','pointercancel','lostpointercapture'])$('fit-character').addEventListener(event,finishFitDrag);
+$('fit-character').addEventListener('keydown',e=>{
+ const move={ArrowLeft:['x',-1],ArrowRight:['x',1],ArrowUp:['y',-1],ArrowDown:['y',1]}[e.key];
+ if(!move)return;e.preventDefault();rememberFit();setFitField(move[0],fitEditingValue()[move[0]]+move[1]*(e.shiftKey?5:1));
+});
+
+try{
+ const stored=JSON.parse(localStorage.getItem(STORAGE));
+ if(stored?.version===2){const next=parseBackup(stored);state=next.state;saved=next.saved;fitProfile=next.fitting}
+}catch(error){/* Corrupt or unavailable storage cannot partially replace the current state. */}
+render();
+</script>
+</body>
+</html>
